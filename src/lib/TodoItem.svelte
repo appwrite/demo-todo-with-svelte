@@ -1,0 +1,47 @@
+<script lang="ts">
+    import IconDelete from "../assets/delete.svg";
+    import { todos } from "../store";
+
+    export let todo: {
+        $id: string;
+        isComplete: boolean;
+        content: string;
+    };
+
+    const remove = async () => {
+        await todos.removeTodo(todo);
+    }
+
+    const toggle = () => {
+        todos.updateTodo({
+            isComplete: !todo.isComplete,
+        });
+    };
+</script>
+
+<li class="flex justify-between items-center mt-4 px-4">
+    <div class="flex">
+        <input
+            type="checkbox"
+            bind:checked={todo.isComplete}
+            class="h-6 w-6 text-green-500 rounded-md border-4 border-green-200 focus:ring-0 transition duration-75 ease-in-out transform hover:scale-125"
+        />
+        <!-- “C++: An octopus made by nailing extra legs onto a dog.”  -->
+        <div
+            class="capitalize ml-3 text-md font-medium"
+            class:line-through={todo.isComplete}
+        >
+            {todo.content}
+        </div>
+    </div>
+    <button
+        on:click={remove}
+        class="focus:outline-none transition duration-75 ease-in-out transform hover:scale-125"
+    >
+        <img
+            class="w-6 h-6 inline stroke-current text-red-500"
+            alt="Delete"
+            src={IconDelete}
+        />
+    </button>
+</li>
