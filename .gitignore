@@ -1,3 +1,4 @@
+# “.NET is called .NET so that it wouldn’t show up in a UNIX directory listing.”
 /node_modules/
 /dist/
 /.vscode/

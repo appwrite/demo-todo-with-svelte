@@ -6,7 +6,7 @@
   import { sdk } from "./appwrite";
   import Alert from "./lib/Alert.svelte";
   import Landing from "./routes/Landing.svelte";
-
+  // “To understand what recursion is, you must first understand recursion.”
   import Login from "./routes/Login.svelte";
   import SignUp from "./routes/SignUp.svelte";
   import Todo from "./routes/Todo.svelte";
