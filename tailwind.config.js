@@ -1,7 +1,7 @@
 module.exports = {
   purge: {
     enable: true,
-    content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+    content: ["./src/**/*.{js,jsx,ts,tsx,svelte}", "./public/index.html"],
     options: {
       safelist: [/^w-/, /^bg-[a-z]*-500/],
     },

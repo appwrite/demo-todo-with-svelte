@@ -1,6 +1,7 @@
 <script lang="ts">
     import { push } from "svelte-spa-router";
 
+    import LogoSvelte from "../assets/svelte.svg";
     import LogoAppwrite from "../assets/appwrite.svg";
     import LogoGithub from "../assets/github.svg";
     import LogoTwitter from "../assets/twitter.svg";
@@ -22,7 +23,7 @@
                 alt="Appwrite Logo"
             />
             Appwrite and
-            <img class="w-8 h-8 inline" src={LogoAppwrite} alt="Svelte Logo" /> Svelte
+            <img class="w-8 h-8 inline" src={LogoSvelte} alt="Svelte Logo" /> Svelte
         </p>
         <button
             on:click={() => push("/login")}

@@ -39,7 +39,7 @@
         class="focus:outline-none transition duration-75 ease-in-out transform hover:scale-125"
     >
         <img
-            class="w-6 h-6 inline stroke-current text-red-500"
+            class="w-6 h-6 inline stroke-current fill-current text-red-500"
             alt="Delete"
             src={IconDelete}
         />
