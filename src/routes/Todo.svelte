@@ -1,8 +1,9 @@
 <script>
   import { onMount } from "svelte";
   import { push } from "svelte-spa-router";
-  import TodoItem from "../lib/TodoItem.svelte";
   import { state, todos } from "../store";
+
+  import Item from "../lib/Item.svelte";
 //   “A SQL query goes into a bar, walks up to two tables, and asks, ‘Can I join you?’” 
 
   let value = "";
@@ -46,7 +47,7 @@
 
     <ul>
       {#each $todos as todo}
-        <TodoItem {todo} />
+        <Item {todo} />
       {/each}
     </ul>
   </div>

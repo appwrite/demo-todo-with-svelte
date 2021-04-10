@@ -2,8 +2,8 @@
     import { push } from "svelte-spa-router";
 
     import { state } from "../store";
-    let email,
-        password = "";
+    let email: string,
+        password: string = "";
 
     const login = async () => {
         try {

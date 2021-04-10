@@ -38,4 +38,4 @@
 </script>
 
 <Alert />
-<Router {routes} on:conditionsFailed={() => push('/')} />
+<Router {routes} on:conditionsFailed={() => push("/")} />

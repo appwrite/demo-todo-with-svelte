@@ -1,10 +1,25 @@
-import { update_keyed_each } from "svelte/internal";
 // “The best thing about a boolean is even if you are wrong, you are only off by a bit.”
 import { get, writable } from "svelte/store";
 import { sdk, server } from "./appwrite";
 
+export type Todo = {
+  $collection: string;
+  $id: string;
+  $permissions: {
+    read: string[];
+    write: string[];
+  }
+  content: string;
+  isComplete: boolean;
+}
+
+export type Alert = {
+  color: string;
+  message: string;
+}
+
 const createTodos = () => {
-  const { subscribe, update, set } = writable([]);
+  const { subscribe, update, set } = writable<Todo[]>([]);
 
   return {
     subscribe,
@@ -12,9 +27,9 @@ const createTodos = () => {
       const response: any = await sdk.database.listDocuments(server.collection);
       return set(response.documents);
     },
-    addTodo: async (content) => {
+    addTodo: async (content: string) => {
       const permissions = [`user:${get(state).account.$id}`];
-      const todo = await sdk.database.createDocument(
+      const todo = <Todo>await sdk.database.createDocument(
         server.collection,
         {
           content,
@@ -26,11 +41,11 @@ const createTodos = () => {
 
       return update((n) => [todo, ...n]);
     },
-    removeTodo: async (todo) => {
+    removeTodo: async (todo: Todo) => {
       await sdk.database.deleteDocument(server.collection, todo.$id);
       return update((n) => n.filter((t) => t.$id !== todo.$id));
     },
-    updateTodo: async (todo) => {
+    updateTodo: async (todo: Partial<Todo>) => {
       const permissions = [`user:${get(state).account.$id}`];
       await sdk.database.updateDocument(
         server.collection,
@@ -40,7 +55,11 @@ const createTodos = () => {
         permissions
       );
       return update((n) => {
-        n[n.findIndex((t) => t.$id === todo.$id)] = todo;
+        const index = n.findIndex((t) => t.$id === todo.$id);
+        n[index] = {
+          ...n[index],
+          ...<Todo>todo
+        };
         return n;
       });
     },
@@ -55,10 +74,10 @@ const createState = () => {
 
   return {
     subscribe,
-    signup: async (email, password, name) => {
+    signup: async (email: string, password: string, name: string) => {
       return await sdk.account.create(email, password, name);
     },
-    login: async (email, password) => {
+    login: async (email: string, password: string) => {
       await sdk.account.createSession(email, password);
       const user = await sdk.account.get();
       state.init(user);
@@ -66,7 +85,7 @@ const createState = () => {
     logout: async () => {
       await sdk.account.deleteSession("current");
     },
-    alert: async (alert) =>
+    alert: async (alert: Alert) =>
       update((n) => {
         n.alert = alert;
         return n;

@@ -1,21 +1,24 @@
 <script lang="ts">
-import { push } from "svelte-spa-router";
+    import { push } from "svelte-spa-router";
 
-import { state } from "../store";
+    import { state } from "../store";
 
-let name, email, password = "";
+    let name: string,
+        email: string,
+        password: string = "";
 
-const signup = async () => {
-    try {
-        await state.signup(email, password, name);
-        await state.login(email,password);
-        name = email = password = "";
-        push("/todos");
-    } catch (error) {
-        state.alert({ color: "red", message: error.message });
-    }
-}
+    const signup = async () => {
+        try {
+            await state.signup(email, password, name);
+            await state.login(email, password);
+            name = email = password = "";
+            push("/todos");
+        } catch (error) {
+            state.alert({ color: "red", message: error.message });
+        }
+    };
 </script>
+
 <section class="container h-screen mx-auto flex">
     <!-- “God is real … unless declared integer.”  -->
     <div class="flex-grow flex flex-col max-w-xl justify-center p-6">

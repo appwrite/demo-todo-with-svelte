@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "validate": "svelte-check"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "next",
@@ -13,6 +14,7 @@
     "postcss": "^8.2.9",
     "postcss-load-config": "^3.0.1",
     "svelte": "^3.35.0",
+    "svelte-check": "^1.4.0",
     "svelte-preprocess": "^4.7.0",
     "typescript": "^4.2.3",
     "vite": "^2.1.5"

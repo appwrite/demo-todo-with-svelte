@@ -1,20 +1,19 @@
 <script lang="ts">
+    import type { Todo } from "../store";
     import IconDelete from "../assets/delete.svg";
     import { todos } from "../store";
 
-    export let todo: {
-        $id: string;
-        isComplete: boolean;
-        content: string;
-    };
+    export let todo: Todo;
 
     const remove = async () => {
         await todos.removeTodo(todo);
-    }
+    };
 
-    const toggle = () => {
+    const toggle = (e: Event) => {
+        const isComplete = (<HTMLInputElement>e.target).checked;
         todos.updateTodo({
-            isComplete: !todo.isComplete,
+            $id: todo.$id,
+            isComplete,
         });
     };
 </script>
@@ -24,6 +23,7 @@
         <input
             type="checkbox"
             bind:checked={todo.isComplete}
+            on:change={toggle}
             class="h-6 w-6 text-green-500 rounded-md border-4 border-green-200 focus:ring-0 transition duration-75 ease-in-out transform hover:scale-125"
         />
         <!-- “JavaScript logic: 0 == "0" and 0 == []; therefore, "0" != [].   -->

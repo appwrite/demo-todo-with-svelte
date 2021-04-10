@@ -1,9 +1,9 @@
 import Appwrite from "appwrite";
 
 const server = {
-    endpoint: import.meta.env.VITE_APP_ENDPOINT,
-    project: import.meta.env.VITE_APP_PROJECT,
-    collection: import.meta.env.VITE_APP_COLLECTION_ID
+    endpoint: import.meta.env.VITE_APP_ENDPOINT.toString(),
+    project: import.meta.env.VITE_APP_PROJECT.toString(),
+    collection: import.meta.env.VITE_APP_COLLECTION_ID.toString()
 }
 
 const sdk = new Appwrite();
