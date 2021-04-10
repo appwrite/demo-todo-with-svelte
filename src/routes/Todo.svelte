@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
 import { push } from "svelte-spa-router";
 
-    import TodoItem from "../lib/Todoitem.svelte";
+    import TodoItem from "../lib/TodoItem.svelte";
     import { state, todos } from "../store";
 
     let value = "";
