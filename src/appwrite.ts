@@ -1,7 +1,13 @@
 import Appwrite from "appwrite";
 
+const server = {
+    endpoint: import.meta.env.VITE_APP_ENDPOINT,
+    project: import.meta.env.VITE_APP_PROJECT,
+    collection: import.meta.env.VITE_APP_COLLECTION_ID
+}
+
 const sdk = new Appwrite();
 
-sdk.setEndpoint("https://demo.appwrite.io/v1").setProject("6062f9c2c09ce");
+sdk.setEndpoint(server.endpoint).setProject(server.project);
 
-export {sdk};
+export {sdk, server};

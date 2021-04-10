@@ -26,6 +26,7 @@
         </p>
         <form on:submit|preventDefault={login}>
             <label class="block mt-6" for="email"> Email</label>
+            <!-- “Knock, knock … Who’s there? … *very long pause* … Java.” -->
             <input
                 id="email"
                 class="w-full p-4 placeholder-gray-400 text-gray-700 bg-white text-lg border-0 border-b-2 border-gray-400 focus:ring-0 focus:border-gray-900"

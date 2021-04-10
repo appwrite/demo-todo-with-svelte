@@ -26,7 +26,7 @@
             bind:checked={todo.isComplete}
             class="h-6 w-6 text-green-500 rounded-md border-4 border-green-200 focus:ring-0 transition duration-75 ease-in-out transform hover:scale-125"
         />
-        <!-- “C++: An octopus made by nailing extra legs onto a dog.”  -->
+        <!-- “JavaScript logic: 0 == "0" and 0 == []; therefore, "0" != [].   -->
         <div
             class="capitalize ml-3 text-md font-medium"
             class:line-through={todo.isComplete}
@@ -39,7 +39,7 @@
         class="focus:outline-none transition duration-75 ease-in-out transform hover:scale-125"
     >
         <img
-            class="w-6 h-6 inline stroke-current text-red-500"
+            class="w-6 h-6 inline stroke-current fill-current text-red-500"
             alt="Delete"
             src={IconDelete}
         />

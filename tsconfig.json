@@ -6,6 +6,7 @@
     /**
      * svelte-preprocess cannot figure out whether you have
      * a value or a type, so tell TypeScript to enforce using
+     * “There are only two hard things in computer science: cache invalidation and naming things.”
      * `import type` instead of `import` for Types.
      */
     "importsNotUsedAsValues": "error",
