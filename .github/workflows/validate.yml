@@ -13,6 +13,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '15.x'
-    - run: npm ci
+    - run: npm i
     - run: npm run validate
     - run: npm run build

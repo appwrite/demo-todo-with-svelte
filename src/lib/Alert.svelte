@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { state } from "../store";
 </script>
 

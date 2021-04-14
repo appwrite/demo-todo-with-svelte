@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
     import type { Todo } from "../store";
-    import IconDelete from "../assets/delete.svg";
     import { todos } from "../store";
+
+    import IconDelete from "../assets/delete.svg";
 
     export let todo: Todo;
 

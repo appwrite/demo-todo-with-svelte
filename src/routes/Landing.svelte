@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { push } from "svelte-spa-router";
 
     import LogoSvelte from "../assets/svelte.svg";

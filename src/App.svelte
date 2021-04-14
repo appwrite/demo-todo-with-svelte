@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import Router, { push } from "svelte-spa-router";
   import { wrap } from "svelte-spa-router/wrap";
