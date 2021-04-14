@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
     import type { Todo } from "../store";
     import IconDelete from "../assets/delete.svg";
     import { todos } from "../store";

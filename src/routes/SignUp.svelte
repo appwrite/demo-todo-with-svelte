@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
     import { push } from "svelte-spa-router";
 
     import { state } from "../store";
@@ -8,6 +8,9 @@
         password: string = "";
 
     const signup = async () => {
+        if (!checkform) {
+            return;
+        }
         try {
             await state.signup(email, password, name);
             await state.login(email, password);
@@ -17,6 +20,8 @@
             state.alert({ color: "red", message: error.message });
         }
     };
+
+    $: checkform = name !== "" && email !== "" && password !== "";
 </script>
 
 <section class="container h-screen mx-auto flex">
@@ -55,6 +60,7 @@
 
             <div class="mt-6">
                 <button
+                    disabled={!checkform}
                     type="submit"
                     class="mx-auto mt-4 py-4 px-16 font-semibold rounded-lg shadow-md bg-gray-900 text-white border hover:border-gray-900 hover:text-gray-900 hover:bg-white focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
                 >

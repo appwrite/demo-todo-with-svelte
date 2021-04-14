@@ -1,16 +1,17 @@
-<script lang="ts">
+<script>
   import { onMount } from "svelte";
-
   import Router, { push } from "svelte-spa-router";
   import { wrap } from "svelte-spa-router/wrap";
+
+  import { state } from "./store";
   import { sdk } from "./appwrite";
+
+  // “To understand what recursion is, you must first understand recursion.”
   import Alert from "./lib/Alert.svelte";
   import Landing from "./routes/Landing.svelte";
-  // “To understand what recursion is, you must first understand recursion.”
   import Login from "./routes/Login.svelte";
   import SignUp from "./routes/SignUp.svelte";
   import Todo from "./routes/Todo.svelte";
-  import { state } from "./store";
 
   const routes = {
     "/": Landing,
