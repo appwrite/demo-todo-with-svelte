@@ -12,7 +12,6 @@
         <span class="inline-block align-middle font-semibold mr-8">
             {$state.alert.message}
         </span>
-        <!-- “If Java had true garbage collection, most programs would delete themselves upon execution.” -->
         <button
             class="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-4 mr-6 outline-none focus:outline-none"
         >
