@@ -1,4 +1,4 @@
-import Appwrite from "appwrite";
+import { Appwrite } from "appwrite";
 
 const server = {
     endpoint: import.meta.env.VITE_APP_ENDPOINT.toString(),
