@@ -1,38 +1,82 @@
----
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
----
-
-**Describe the bug**
-A clear and concise description of what the bug is.
-
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
-
-**Expected behavior**
-A clear and concise description of what you expected to happen.
-
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+name: "🐛 Bug Report"
+description: "Submit a bug report to help us improve"
+title: "🐛 Bug Report: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out our bug report form 🙏
+  - type: textarea
+    id: steps-to-reproduce
+    validations:
+      required: true
+    attributes:
+      label: "👟 Reproduction steps"
+      description: "How do you trigger this bug? Please walk us through it step by step."
+      placeholder: "When I ..."
+  - type: textarea
+    id: expected-behavior
+    validations:
+      required: true
+    attributes:
+      label: "👍 Expected behavior"
+      description: "What did you think would happen?"
+      placeholder: "It should ..."
+  - type: textarea
+    id: actual-behavior
+    validations:
+      required: true
+    attributes:
+      label: "👎 Actual Behavior"
+      description: "What did actually happen? Add screenshots, if applicable."
+      placeholder: "It actually ..."
+  - type: dropdown
+    id: appwrite-version
+    attributes:
+      label: "🎲 Appwrite version"
+      description: "What version of Appwrite are you running?"
+      options:
+        - Version 0.10.x
+        - Version 0.9.x
+        - Version 0.8.x
+        - Version 0.7.x
+        - Version 0.6.x
+        - Different version (specify in environment)
+    validations:
+      required: true
+  - type: dropdown
+    id: operating-system
+    attributes:
+      label: "💻 Operating system"
+      description: "What OS is your server / device running on?"
+      options:
+        - Linux
+        - MacOS
+        - Windows
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: enviromnemt
+    validations:
+      required: false
+    attributes:
+      label: "🧱 Your Environment"
+      description: "Is your environment customized in any way?"
+      placeholder: "I use Cloudflare for ..."
+  - type: checkboxes
+    id: no-duplicate-issues
+    attributes:
+      label: "👀 Have you spent some time to check if this issue has been raised before?"
+      description: "Have you Googled for a similar issue or checked our older issues for a similar bug?"
+      options:
+        - label: "I checked and didn't find similar issue"
+          required: true
+    id: read-code-of-conduct
+    attributes:
+      description: "This is our [Code of Conduct](https://github.com/appwrite/appwrite/blob/master/CODE_OF_CONDUCT.md)."
+      label: "🏢 Have you read the Code of Conduct?"
+      options:
+        - label: "I read the Code of Conduct"
+          required: true
