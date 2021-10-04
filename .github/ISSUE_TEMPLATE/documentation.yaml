@@ -6,14 +6,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out our documentation update request form 🙏
+        Thanks for taking the time to make our documentation better 🙏
   - type: textarea
     id: issue-description
     validations:
       required: true
     attributes:
       label: "💭 Description"
-      description: "A clear and concise description of what and where the issue is."
+      description: "A clear and concise description of what the issue is."
       placeholder: "Documentation should not ..."
   - type: checkboxes
     id: no-duplicate-issues
@@ -26,8 +26,7 @@ body:
   - type: checkboxes
     id: read-code-of-conduct
     attributes:
-      description: "This is our [Code of Conduct](https://github.com/appwrite/appwrite/blob/master/CODE_OF_CONDUCT.md)."
       label: "🏢 Have you read the Code of Conduct?"
       options:
-        - label: "I read the Code of Conduct"
+        - label: "I have read the [Code of Conduct](https://github.com/appwrite/appwrite/blob/HEAD/CODE_OF_CONDUCT.md)"
           required: true
