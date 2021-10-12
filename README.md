@@ -72,7 +72,7 @@ Run the following command to generate your `.env` vars
 $ cp .env.example .env
 ```
 
-Now fill in the envrionment variables we discussed above in your `.env`
+Now fill in the environment variables we discussed above in your `.env`
 
 Now run the following commands and you should be good to go 💪🏼 
 ```
