@@ -25,7 +25,7 @@
 </script>
 
 <section class="container h-screen mx-auto flex">
-    <!-- “God is real … unless declared integer.”  -->
+  
     <div class="flex-grow flex flex-col max-w-xl justify-center p-6">
         <h1 class="text-6xl font-bold">Sign Up</h1>
         <p class="mt-4">
