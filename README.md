@@ -89,4 +89,4 @@ Our access credentials were recently compromised and someone tried to ruin these
 
 The first 15 people to get their PRs merged will receive some Appwrite Swags 🤩 . Just head over to our [Discord channel](https://appwrite.io/discord) and share your PR link with us.  
 
-> *UPDATE **17-11-2021**: * The easter egg contest is now closed. 
+> *UPDATE **17-11-2021**:* The easter egg contest is now closed. 
