@@ -1,16 +1,12 @@
 import { get, writable } from "svelte/store";
 import { sdk, server } from "./appwrite";
 
+import type { Models } from "appwrite";
+
 export type Todo = {
-  $collection: string;
-  $id: string;
-  $permissions: {
-    read: string[];
-    write: string[];
-  }
   content: string;
   isComplete: boolean;
-}
+} & Models.Document;
 
 export type Alert = {
   color: string;
@@ -28,8 +24,9 @@ const createTodos = () => {
     },
     addTodo: async (content: string) => {
       const permissions = [`user:${get(state).account.$id}`];
-      const todo = <Todo>await sdk.database.createDocument(
+      const todo = await sdk.database.createDocument<Todo>(
         server.collection,
+        'unique()',
         {
           content,
           isComplete: false,
@@ -74,7 +71,7 @@ const createState = () => {
   return {
     subscribe,
     signup: async (email: string, password: string, name: string) => {
-      return await sdk.account.create(email, password, name);
+      return await sdk.account.create('unique()', email, password, name);
     },
     login: async (email: string, password: string) => {
       await sdk.account.createSession(email, password);
