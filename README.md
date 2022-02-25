@@ -19,16 +19,16 @@ We need to make a few configuration changes to your Appwrite server.
 ![Create Web App](https://user-images.githubusercontent.com/20852629/113019434-3c27c900-919f-11eb-997c-1da5a8303ceb.png)
 
 2. Create a new collection with the following properties
-* **Rules**
-Add the following rules to the collection. 
-> Make sure that your key exactly matches the key in the images
+* **Attributes**
+Add the following attributes to the collection. 
+> Make sure that your Attribute ID exactly matches the key in the images
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/20852629/113019972-c3753c80-919f-11eb-9b3a-c3690785bbf4.png" alt="Content Rule" width="400"/>
+<img src="https://user-images.githubusercontent.com/42211/155337647-41ca47a3-9b5b-4853-bca0-f22815e60228.png" alt="Content Attribute" width="400"/>
 </p>
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/20852629/113020008-cec86800-919f-11eb-8cc2-473f8d15fc3f.png" alt="IsComplete Rule" width="400"/>
+<img src="https://user-images.githubusercontent.com/42211/155338065-5b8349e9-e4c9-4be5-a407-04ce7c5b3c4f.png" alt="IsComplete Attribute" width="400"/>
 </p>
 
 * **Permissions**
