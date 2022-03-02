@@ -16,7 +16,7 @@ Follow our simple [Installation Guide](https://appwrite.io/docs/installation) to
 We need to make a few configuration changes to your Appwrite server. 
 
 1. Add a new Web App in Appwrite and enter the endpoint of your website (`localhost, <project-name>.vercel.app etc`)
-![Create Web App](https://user-images.githubusercontent.com/20852629/113019434-3c27c900-919f-11eb-997c-1da5a8303ceb.png)
+![Appwrite Console](https://user-images.githubusercontent.com/31401437/155891052-09bb17e4-a30c-4c73-8c9f-b1cc0b44c596.png)
 
 2. Create a new collection with the following properties
 * **Attributes**
