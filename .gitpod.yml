@@ -1,0 +1,26 @@
+# To learn more about this file, please refer to https://www.gitpod.io/docs/references/gitpod-yml
+tasks:
+  - init: docker-compose pull --include-deps appwrite telegraf influxdb traefik
+    command: |
+      [ ! -f ./env ] && cp .gitpod/.env.example ./.env
+      docker-compose up
+  - init: npm install
+    command: |
+      export HMR_HOST=`gp url 3000`
+      npm run dev
+
+ports:
+  - port: 443
+    onOpen: ignore
+  - port: 3000
+    onOpen: open-browser
+    visibility: public
+  - port: 8080
+    onOpen: open-browser
+    visibility: public
+
+vscode:
+  extensions:
+    - bradlc.vscode-tailwindcss
+    - ms-azuretools.vscode-docker
+    - svelte.svelte-vscode
