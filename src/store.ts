@@ -19,6 +19,7 @@ const createTodos = () => {
     subscribe,
     fetch: async () => {
       const response: any = await sdk.database.listDocuments(server.collection);
+      console.log(response);
       return set(response.documents);
     },
     addTodo: async (content: string) => {
