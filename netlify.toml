@@ -11,3 +11,4 @@
   VITE_APP_ENDPOINT = "Your Appwrite Server Endpoint"
   VITE_APP_PROJECT = "Your Appwrite project ID"
   VITE_APP_COLLECTION_ID = "Your Collection ID"
+  VITE_APP_DATABASE_ID = "Your Database ID"

@@ -1,13 +1,16 @@
-import { Appwrite } from "appwrite";
+import { Client as Appwrite, Databases, Account } from 'appwrite';
 
 const server = {
-    endpoint: import.meta.env.VITE_APP_ENDPOINT.toString(),
-    project: import.meta.env.VITE_APP_PROJECT.toString(),
-    collection: import.meta.env.VITE_APP_COLLECTION_ID.toString()
-}
+  endpoint: import.meta.env.VITE_APP_ENDPOINT.toString(),
+  project: import.meta.env.VITE_APP_PROJECT.toString(),
+  collection: import.meta.env.VITE_APP_COLLECTION_ID.toString(),
+  database: import.meta.env.VITE_APP_DATABASE_ID.toString(),
+};
 
-const sdk = new Appwrite();
+const client = new Appwrite();
+const account = new Account(client);
+const database = new Databases(client, server.database);
+client.setEndpoint(server.endpoint).setProject(server.project);
 
-sdk.setEndpoint(server.endpoint).setProject(server.project);
-
-export {sdk, server};
+const sdk = { account, database };
+export { sdk, server };
