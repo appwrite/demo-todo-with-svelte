@@ -1,6 +1,6 @@
 import type { Models } from 'appwrite';
-import { get, writable } from "svelte/store";
-import { sdk, server } from "./appwrite";
+import { get, writable } from 'svelte/store';
+import { sdk, server } from './appwrite';
 
 export type Todo = {
   content: string;
@@ -10,7 +10,7 @@ export type Todo = {
 export type Alert = {
   color: string;
   message: string;
-}
+};
 
 const createTodos = () => {
   const { subscribe, update, set } = writable<Todo[]>([]);
@@ -54,7 +54,7 @@ const createTodos = () => {
         const index = n.findIndex((t) => t.$id === todo.$id);
         n[index] = {
           ...n[index],
-          ...<Todo>todo
+          ...(<Todo>todo),
         };
         return n;
       });
@@ -74,12 +74,12 @@ const createState = () => {
       return await sdk.account.create('unique()', email, password, name);
     },
     login: async (email: string, password: string) => {
-      await sdk.account.createSession(email, password);
+      await sdk.account.createEmailSession(email, password);
       const user = await sdk.account.get();
       state.init(user);
     },
     logout: async () => {
-      await sdk.account.deleteSession("current");
+      await sdk.account.deleteSession('current');
     },
     alert: async (alert: Alert) =>
       update((n) => {
