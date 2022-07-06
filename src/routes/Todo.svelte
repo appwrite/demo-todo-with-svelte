@@ -9,8 +9,11 @@
   let value = "";
 
   const addTodo = () => {
-    todos.addTodo(value);
-    value = "";
+    // Only submit the value if it's not empty or just spaces
+    if (value.trim().length !== 0) {
+      todos.addTodo(value);
+      value = "";
+    }
   };
 
   const logout = async () => {
