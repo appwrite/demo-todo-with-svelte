@@ -9,7 +9,7 @@ const server = {
 
 const client = new Appwrite();
 const account = new Account(client);
-const database = new Databases(client, server.database);
+const database = new Databases(client);
 client.setEndpoint(server.endpoint).setProject(server.project);
 
 const sdk = { account, database };
