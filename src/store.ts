@@ -42,7 +42,7 @@ const createTodos = () => {
       return update((n) => [todo, ...n]);
     },
     removeTodo: async (todo: Todo) => {
-      await sdk.database.deleteDocument(server.collection, server.database, todo.$id);
+      await sdk.database.deleteDocument(server.database, server.collection, todo.$id);
       return update((n) => n.filter((t) => t.$id !== todo.$id));
     },
     updateTodo: async (todo: Partial<Todo>) => {
