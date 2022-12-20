@@ -35,7 +35,7 @@ Add the following attributes to the collection.
 Add the following permissions to your collections. These permissions ensure that only registered users can access the collection.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/20852629/113019801-99bc1580-919f-11eb-9a94-13b1529cb925.png" alt="Collection Permissions" width="400"/>
+<img src="https://user-images.githubusercontent.com/46646129/193612160-f57dfe6c-dbad-4213-91c6-ba69eb4d0f59.png" alt="Collection Permissions" width="400"/>
 </p>
 
 ### 🚀 Deploy the Front End

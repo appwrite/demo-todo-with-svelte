@@ -1,4 +1,4 @@
-import type { Models } from 'appwrite';
+import { ID, Models, Permission, Role } from 'appwrite';
 import { get, writable } from 'svelte/store';
 import { sdk, server } from './appwrite';
 
@@ -18,37 +18,45 @@ const createTodos = () => {
   return {
     subscribe,
     fetch: async () => {
-      const response: any = await sdk.database.listDocuments(server.collection);
+      const response: any = await sdk.database.listDocuments(server.database, server.collection);
       console.log(response);
       return set(response.documents);
     },
     addTodo: async (content: string) => {
-      const permissions = [`user:${get(state).account.$id}`];
+      const user = Role.user(get(state).account.$id);
       const todo = await sdk.database.createDocument<Todo>(
+        server.database,
         server.collection,
-        'unique()',
+        ID.unique(),
         {
           content,
           isComplete: false,
         },
-        permissions,
-        permissions
+        [
+          Permission.read(user),
+          Permission.update(user),
+          Permission.delete(user),
+        ]
       );
 
       return update((n) => [todo, ...n]);
     },
     removeTodo: async (todo: Todo) => {
-      await sdk.database.deleteDocument(server.collection, todo.$id);
+      await sdk.database.deleteDocument(server.database, server.collection, todo.$id);
       return update((n) => n.filter((t) => t.$id !== todo.$id));
     },
     updateTodo: async (todo: Partial<Todo>) => {
-      const permissions = [`user:${get(state).account.$id}`];
+      const user = Role.user(get(state).account.$id);
       await sdk.database.updateDocument(
+        server.database,
         server.collection,
         todo.$id,
         todo,
-        permissions,
-        permissions
+        [
+          Permission.read(user),
+          Permission.update(user),
+          Permission.delete(user),
+        ]
       );
       return update((n) => {
         const index = n.findIndex((t) => t.$id === todo.$id);
